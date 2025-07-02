@@ -9,13 +9,19 @@ export const Formulario = () => {
     username: ''
   }
 
-  const { formState, handleForm } = useForm(initialForm)
+  const { formState, handleForm, resetForm } = useForm(initialForm)
 
   const { email, password, username } = formState
 
   const onsubmitForm = (event) => {
+    if ( 
+      email.trim() === '' ||
+      password.trim() === '' ||
+      username.trim() === ''
+    ) return
     event.preventDefault()
     console.log(formState)
+    resetForm()
   }
 
   return (

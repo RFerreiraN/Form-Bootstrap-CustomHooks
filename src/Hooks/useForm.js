@@ -6,15 +6,26 @@ export const useForm = (valueForm = {}) => {
 
   const handleForm = ({ target }) => {
     const { name, value } = target
+    
     setFormState({
       ...formState,
       [name]: value
     })
 
+    
+  }
+
+  const resetForm = () => {
+    setFormState({
+      email : '',
+      username : '',
+      password : ''
+    })
   }
 
   return {
     formState, 
+    resetForm,
     handleForm
   }
 }
