@@ -10,9 +10,7 @@ export const useForm = (valueForm = {}) => {
     setFormState({
       ...formState,
       [name]: value
-    })
-
-    
+    })  
   }
 
   const resetForm = () => {
