@@ -1,23 +1,17 @@
 import { useState } from 'react';
+import { useForm } from '../Hooks/useForm';
 
 export const Formulario = () => {
 
-  const [formState, setFormState] = useState({
+  const initialForm = {
     email: '',
     password: '',
     username: ''
-  })
+  }
+
+  const { formState, handleForm } = useForm(initialForm)
 
   const { email, password, username } = formState
-
-  const handleForm = ({ target }) => {
-    const { name, value } = target
-    setFormState({
-      ...formState,
-      [name]: value
-    })
-
-  }
 
   const onsubmitForm = (event) => {
     event.preventDefault()
@@ -48,7 +42,6 @@ export const Formulario = () => {
           placeholder="Password"
           value={password}
           onChange={handleForm}
-
         />
       </div>
 
@@ -65,7 +58,6 @@ export const Formulario = () => {
       </div>
 
       <button type="submit" className="btn btn-primary">Submit</button>
-
     </form>
   )
 }
